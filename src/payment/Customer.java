@@ -17,9 +17,10 @@ public abstract class Customer {
 
     public void makePayment(PaymentStrategy paymentStrategy, double amount)
     {
+        String paymentDetailsAndAmount;
+        paymentDetailsAndAmount = amount + "," + paymentStrategy.getPaymentDetails();
         paymentStrategy.pay(amount);
-
-        paymentHistory.add(paymentStrategy.getPaymentDetails());
+        paymentHistory.add(paymentDetailsAndAmount);
     }
 
     public void showPaymentHistory()
